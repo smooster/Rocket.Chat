@@ -10,19 +10,19 @@ rocketchat:
 # volumes:
 #    - ./uploads:/app/uploads
   environment:
-    - PORT=3000
-    - ROOT_URL=http://yourhost:3000
+    - PORT=80
+    - ROOT_URL=http://chat.smooster.com
     - MONGO_URL=mongodb://mongo:27017/rocketchat
   links:
     - mongo:mongo
   ports:
-    - 3000:3000
+    - 3000:80
 
 # hubot, the popular chatbot (add the bot user first and change the password before starting this image)
 hubot:
   image: rocketchat/hubot-rocketchat
   environment:
-    - ROCKETCHAT_URL=rocketchat:3000
+    - ROCKETCHAT_URL=chat.smooster.com
     - ROCKETCHAT_ROOM=GENERAL
     - ROCKETCHAT_USER=bot
     - ROCKETCHAT_PASSWORD=botpassword
